@@ -12,7 +12,7 @@ exports.run = {
    }) => {
       try {
          switch (command) {
-            case 'button1':
+            case 'topup':
                const buttons = [{
                   name: 'quick_reply',
                   buttonParamsJson: JSON.stringify({
@@ -25,13 +25,13 @@ exports.run = {
                      title: 'Tap Here!',
                      sections: [{
                         rows: [{
-                           title: 'Dummy 1',
-                           // description: `X`,
-                           id: `${isPrefix}run`
+                           title: 'Free Firee',
+                            description: `Top Up FF`,
+                           id: `${isPrefix}topupff`
                         }, {
-                           title: 'Dummy 2',
-                           // description: `Y`,
-                           id: `${isPrefix}run`
+                           title: 'Mobile Legend',
+                            description: `Top Up ML`,
+                           id: `${isPrefix}topupml`
                         }]
                      }]
                   })
@@ -129,38 +129,6 @@ exports.run = {
 
                client.sendCarousel(m.chat, cards, m, {
                   content: 'Hi!'
-               })
-               break
-
-               case 'topup':
-               const buttons = [{
-                  name: 'quick_reply',
-                  buttonParamsJson: JSON.stringify({
-                     display_text: 'Owner',
-                     id: `${isPrefix}owner`
-                  })
-               }, {
-                  name: 'single_select',
-                  buttonParamsJson: JSON.stringify({
-                     title: 'Tap Here!',
-                     sections: [{
-                        rows: [{
-                           title: 'Free Firee',
-                           // description: `X`,
-                           id: `${isPrefix}topupff`
-                           }, {
-                           title: 'Mobile Legend',
-                           // description: `Y`,
-                           id: `${isPrefix}topupml`
-                        }]
-                     }]
-                  })
-               }]
-               client.sendIAMessage(m.chat, buttons, m, {
-                  header: '',
-                  content: 'Hi! @0',
-                  footer: global.footer,
-                  media: Func.isUrl(setting.cover) ? setting.cover : Buffer.from(setting.cover, 'base64'),
                })
                break
 
