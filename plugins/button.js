@@ -1,7 +1,7 @@
 const fs = require('fs')
 
 exports.run = {
-   usage: ['button1', 'button2', 'button3', 'button4', 'button5', 'button6'],
+   usage: ['button1', 'button2', 'button3', 'button4', 'button5', 'button6', 'topup'],
    category: 'example',
    async: async (m, {
       client,
@@ -129,6 +129,42 @@ exports.run = {
 
                client.sendCarousel(m.chat, cards, m, {
                   content: 'Hi!'
+               })
+               break
+
+               case 'topup':
+               const buttons = [{
+                  name: 'quick_reply',
+                  buttonParamsJson: JSON.stringify({
+                     display_text: 'Owner',
+                     id: `${isPrefix}owner`
+                  })
+               }, {
+                  name: 'single_select',
+                  buttonParamsJson: JSON.stringify({
+                     title: 'Tap Here!',
+                     sections: [{
+                        rows: [{
+                           title: 'Free Firee',
+                           // description: `X`,
+                           id: `${isPrefix}topupff`
+                           }, {
+                           title: 'Mobile Legend',
+                           // description: `Y`,
+                           id: `${isPrefix}topupml`
+                           }, {
+                           title: 'Honor Of Kings',
+                           // description: `Y`,
+                           id: `${isPrefix}topuphok`
+                        }]
+                     }]
+                  })
+               }]
+               client.sendIAMessage(m.chat, buttons, m, {
+                  header: '',
+                  content: 'Hi! @0',
+                  footer: global.footer,
+                  media: Func.isUrl(setting.cover) ? setting.cover : Buffer.from(setting.cover, 'base64'),
                })
                break
 
