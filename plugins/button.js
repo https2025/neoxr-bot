@@ -152,10 +152,6 @@ exports.run = {
                            title: 'Mobile Legend',
                            // description: `Y`,
                            id: `${isPrefix}topupml`
-                           }, {
-                           title: 'Honor Of Kings',
-                           // description: `Y`,
-                           id: `${isPrefix}topuphok`
                         }]
                      }]
                   })
